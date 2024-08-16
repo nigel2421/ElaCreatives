@@ -1,0 +1,26 @@
+name: Spares Deployment
+
+on:
+  push:
+    branches:
+      - master
+      
+
+jobs:
+  build_master:
+    name: Build for Master
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Executing Deployment for Master
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            
+          
+            git pull origin master
+
