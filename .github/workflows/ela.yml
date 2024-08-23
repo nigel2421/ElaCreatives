@@ -20,3 +20,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd elacreatives.com
+                     git pull origin master
